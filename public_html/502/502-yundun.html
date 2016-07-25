@@ -1,0 +1,208 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>502 - YUNDUN</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9,Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Web应用防火墙_网站防黑客_抗DDoS防火墙_DDoS防御_防CC攻击_防DDoS攻击_CDN网站加速 - YUNDUN"/>
+    <meta name="description" content="YUNDUN—基于云计算技术支撑的下一代应用安全加速整体解决方案。防CC攻击、抗DDoS攻击、防黑客入侵篡改、防挂马、防漏洞、CDN网站加速、一键完成。"/>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.2/css/bootstrap.css">
+    <!--[if lt IE 9]>
+    <script src="../static/js/html5.min.js"></script>
+    <script src="../static/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .content {
+            margin-top: 20%;
+        }
+
+        .work-ing {
+            color: green;
+            font-size: 20px;
+            white-space: nowrap;
+        }
+
+        .error-ing {
+            color: red;
+            font-size: 30px;
+            white-space: nowrap;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .error-code {
+            font-size: 60px;
+            white-space: nowrap;
+            color: #E5493A;
+        }
+
+        .error-desc {
+            white-space: nowrap;
+        }
+
+        .font-ital {
+            font-style: italic;
+        }
+
+        hr {
+            background-color: #10CE6E;
+            height: 1px;
+        }
+
+        .ico-title {
+            font-size: 24px;
+            color: inherit;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 3;
+            white-space: nowrap;
+        }
+
+        #cloud_node {
+            margin-left: 2%;
+        }
+
+        .error-desc-rt {
+            text-align: right;
+        }
+
+        .error-desc-lt {
+            text-align: left;
+        }
+
+        .rm-dowm-img {
+            margin-top: 5%;
+        }
+
+        .ico {
+            margin-top: 5%;
+        }
+
+        @media screen and (min-width: 460px) and(max-width: 768px) {
+            .content {
+                margin-top: 40%;
+            }
+
+            .error-code {
+                font-size: 30px;
+            }
+
+            .ico-title {
+                font-size: 20px;
+            }
+
+            .rm-down-text {
+                margin-top: 40%;
+            }
+
+            .work-ing, .error-ing {
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width: 459px) {
+            .content {
+                margin-top: 45%;
+            }
+            .error-code {
+                font-size: 30px;
+            }
+
+            .error-reson {
+                margin-left: -35%;
+            }
+
+            .ico-title {
+                font-size: 5px;
+                line-height: 1.5;
+                margin-top: 10%;
+            }
+
+            .rm-down-text {
+                margin-top: 40%;
+            }
+
+            .work-ing, .error-ing {
+                font-size: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="container">
+
+            <div class="row text-center">
+                <div class="col-xs-2 col-xs-offset-1">
+                    <div><img src="../static/images/502/502-01.png"></div>
+                    <div class="ico-title">浏览器</div>
+
+                    <div class="work-ing">工作中</div>
+                </div>
+                <div class="col-xs-2 ico">
+                    <img src="../static/images/502/502-02.png">
+                </div>
+                <div class="col-xs-2">
+                    <div><img src="../static/images/502/502-03-2.png"></div>
+                    <div class="ico-title rm-down-text">YUNDUN</div>
+
+                    <div class="work-ing">云节点工作中</div>
+                </div>
+                <div class="col-xs-2 ico">
+                    <img src="../static/images/502/502-04.png">
+                </div>
+                <div class="col-xs-2">
+                    <div class="rm-dowm-img"><img src="../static/images/502/502-05.png"></div>
+                    <div class="ico-title">源服务器</div>
+
+                    <div class="error-ing">Error</div>
+                </div>
+            </div>
+
+            <div class="row error-reson">
+                <div class="col-xs-6 error-desc-rt">
+                    <h1 class="error-code font-ital">502</h1>
+                </div>
+
+                <div class="col-xs-6 error-desc-lt">
+                    <div class="ico-title font-ital">网关错误!!!</div>
+                    <div class="error-desc font-ital">可能原因:源服务器请求超时!</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr width="100%"/>
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <div>
+                    <span id="client_ip">您的IP: <span id="ip_addr">180.173.145.191</span></span>
+                    <span id="cloud_node">云节点:<span id="node_addr">123.0.0.1</span></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../static/js/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        var errCode = "502";
+        var ipAddr = "180.173.145.191";
+        var cloudNode = "123.0.0.1";
+
+        $("#err_code").text(errCode);
+        $("#ip_addr").text(ipAddr);
+        $("#node_addr").text(cloudNode);
+    </script>
+</body>
+</html>
