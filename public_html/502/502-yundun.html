@@ -38,7 +38,7 @@
             .img-aside-top{height: 10%;}
             #ip_addr{margin-right: 2%;}
             #items-phone{display: none;}
-            .w1400{color: #E5493A;}
+
             @media screen and (min-width:992px) and (max-width:1366px){
                 .img-aside-lt{width:20%;}
                 .items{width: 60%;}
@@ -60,9 +60,9 @@
             }
 
             @media screen and (min-width:521px) and (max-width:768px){
-                .img-aside-lt{display: none;}
-                .items{width: 100%;}
-                .img-aside-rt{display: none;}
+                .img-aside-lt{width:15%;}
+                .items{width: 70%;}
+                .img-aside-rt{width:15%;}
                 .text-aside-lt{display: none;}
                 .err-text-container{width: 100%;}
                 .text-aside-rt{display: none;}
@@ -99,8 +99,59 @@
                 .err-ip-addr{font-size:8px;}
                 .item-img{height: 30px;}
             }
-        </style>
 
+            /*ie9以下版本模拟媒体查询*/
+            .w992 .img-aside-lt{width:20%;}
+            .w992 .items{width: 60%;}
+            .w992 .img-aside-rt{width:20%;}
+            .w992 .text-aside-lt,.text-aside-rt{display: none;}
+            .w992 .err-text-container{width: 100%;}
+            .w992 #err_code{width: 20%;font-size: 5em;}
+            .w992 #status_text{font-size: 1.4em;margin-left: 2%;}
+
+            .w769 .img-aside-lt{width:15%;}
+            .w769 .items{width: 70%;}
+            .w769 .img-aside-rt{width:15%;}
+            .w769 .text-aside-lt,.text-aside-rt{display: none;}
+            .w769 .err-text-container{width: 100%;}
+            .w769 #err_code{width: 20%;font-size: 5em;}
+            .w769 #status_text{font-size: 1.4em;margin-left: 2%;}
+
+            .w521 .img-aside-lt{width:15%;}
+            .w521 .items{width: 70%;}
+            .w521 .img-aside-rt{width:15%;}
+            .w521 .text-aside-lt{display: none;}
+            .w521 .err-text-container{width: 100%;}
+            .w521 .text-aside-rt{display: none;}
+            .w521 #err_code{width: 20%;font-size: 5em;}
+            .w521 #status_text{font-size: 1.4em;margin-left: 2%;}
+
+            .w321 .img-aside-lt{width: 20%;}
+            .w321 .items{width: 60%;}
+            .w321 .img-aside-rt{width: 20%;}
+            .w321 .run-localtion{font-size: 12px;}
+            .w321 .run-status{font-size: 8px;}
+            .w321 .text-aside-lt{display: none;}
+            .w321 .err-text-container{width: 100%;}
+            .w321 .text-aside-rt{display: none;}
+            .w321 #err_code{width: 20%;font-size: 3em;}
+            .w321 #status_text{font-size: 1em;margin-left: 2%;}
+            .w321 .err-ip-addr{font-size: 10px;}
+            .w321 .item-img{height: 30px;}
+
+            .lt-w320 .img-aside-lt{width: 20%;}
+            .lt-w320 .items{width: 60%;}
+            .lt-w320 .img-aside-rt{width: 20%;}
+            .lt-w320 .run-localtion{font-size: 10px;}
+            .lt-w320 .run-status{font-size: 8px;}
+            .lt-w320 .text-aside-lt{display: none;}
+            .lt-w320 .err-text-container{width: 100%;}
+            .lt-w320 .text-aside-rt{display: none;}
+            .lt-w320 #err_code{width: 20%;font-size: 2em;}
+            .lt-w320 #status_text{font-size: 10px;margin-left: 2%;}
+            .lt-w320 .err-ip-addr{font-size:8px;}
+            .lt-w320 .item-img{height: 30px;}
+        </style>
 
     </head>
 
@@ -188,26 +239,24 @@
             var ie = window.ActiveXObject ? true : false;
             var ie8 = (ie && document.documentMode <= 8) ? true : false;
 
-            //data中的属性值用HTTP响应头中的内容替换
-            var data = {
-                "errCode": "502",
-                "errName": "网关错误!!!",
-                "ipAddr": "180.173.145.191",
-                "cloudNode": "123.0.0.1"
-            };
+            var errCode = "502";
+            var errName = "网关错误!!!";
+
+            //ip和云节点用服务器返回的响应内容替换
+            var ipAddr = "180.173.145.191";
+            var cloudNode = "123.0.0.1";
+
 
             var showContent = function () {
-                document.getElementById("err_code").textContent = data.errCode;
-                document.getElementById("status_text").textContent = data.errName;
-                document.getElementById("ip_addr").textContent = data.ipAddr;
-                document.getElementById("node_addr").textContent = data.cloudNode;
-
-                if (ie) {
-                    document.getElementById("err_code").innerText = data.errCode;
-                    document.getElementById("status_text").innerText = data.errName;
-                    document.getElementById("ip_addr").innerText = data.ipAddr;
-                    document.getElementById("node_addr").innerText = data.cloudNode;
-                }
+                document.getElementById("err_code").textContent = errCode;
+                document.getElementById("status_text").textContent = errName;
+                document.getElementById("ip_addr").textContent = ipAddr;
+                document.getElementById("node_addr").textContent = cloudNode;
+                /*ie*/
+                document.getElementById("err_code").innerText = errCode;
+                document.getElementById("status_text").innerText = errName;
+                document.getElementById("ip_addr").innerText = ipAddr;
+                document.getElementById("node_addr").innerText = cloudNode;
             };
 
 
@@ -217,20 +266,19 @@
             var screenRespond = function () {
                 var windWidth = document.compatMode === "CSS1Compat" ? document.documentElement.clientWidth : document.body.clientWidth;
                 if (windWidth > 1366) {
-                    document.body.className = "gt-w1366";
+                    document.body.className = "";
                 } else if (windWidth > 991 && windWidth <= 1366) {
                     document.body.className = "w992";
                 } else if (windWidth > 768 && windWidth <= 991) {
                     document.body.className = "w769";
                 } else if (windWidth > 520 && windWidth <= 768) {
                     document.body.className = "w521";
-                } else if (windWidth >= 320 && windWidth <= 520) {
-                    document.body.className = "w320";
+                } else if (windWidth > 320 && windWidth <= 520) {
+                    document.body.className = "w321";
                 } else {
                     document.body.className = "lt-w320";
                 }
             };
-//            ie8 === true ? document.body.onresize = screenRespond() : "";
 
             window.onload = function () {
                 showContent();
@@ -240,7 +288,14 @@
                 }
             };
 
+            window.onresize = function () {
+                if (ie8) {
+                    screenRespond();
+                }
+            };
+
         </script>
+
 
 
     </body>
